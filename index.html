@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Fitness</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">Student Fitness</div>
+    <nav>
+      <ul>
+        <li><a href="#quickstart">Quick Start</a></li>
+        <li><a href="#workouts">Workout Types</a></li>
+        <li><a href="#planner">Planner</a></li>
+        <li><a href="#motivation">Motivation</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main class="fitness-section">
+    <h1>🏋️ Fitness for Students</h1>
+    <p class="intro">
+      Build habits that support your body and mind. Plan your fitness goals using the calendar and explore workouts tailored to a student lifestyle.
+    </p>
+
+    <!-- Quick Start -->
+    <section id="quickstart" class="subsection">
+      <h2>⚡ Quick Start Guide</h2>
+      <ul>
+        <li>✅ <strong>Beginner-friendly:</strong> Start with 15–20 mins, 3x a week</li>
+        <li>⏱️ <strong>Busy day?</strong> Squeeze in 5–10 minute workouts</li>
+        <li>🎯 <strong>Choose your goal:</strong> Cardio, Strength, or Flexibility</li>
+      </ul>
+    </section>
+
+    <!-- Workout Types -->
+    <section id="workouts" class="subsection">
+      <h2>💪 Workout Categories</h2>
+      <div class="workout-grid">
+        <div class="card">
+          <h3>🏃 Cardio</h3>
+          <ul>
+            <li>Jump rope (5–10 mins)</li>
+            <li>Jog or walk around school</li>
+            <li>10-min YouTube dance workouts</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>💪 Strength</h3>
+          <ul>
+            <li>Push-ups, squats, planks</li>
+            <li>Backpack or bottle curls</li>
+            <li>Resistance band circuits</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>🧘 Flexibility</h3>
+          <ul>
+            <li>Beginner yoga flow</li>
+            <li>Foam rolling or stretching</li>
+            <li>Sun salutations (3 rounds)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Planner / Calendar -->
+    <section id="planner" class="subsection">
+      <h2>📅 Workout Planner</h2>
+      <p>Click a day to assign your workout. Choose from Cardio, Strength, or Flexibility.</p>
+      <div class="calendar">
+        <div class="day" onclick="assignWorkout(this)">Mon</div>
+        <div class="day" onclick="assignWorkout(this)">Tue</div>
+        <div class="day" onclick="assignWorkout(this)">Wed</div>
+        <div class="day" onclick="assignWorkout(this)">Thu</div>
+        <div class="day" onclick="assignWorkout(this)">Fri</div>
+        <div class="day" onclick="assignWorkout(this)">Sat</div>
+        <div class="day" onclick="assignWorkout(this)">Sun</div>
+      </div>
+
+      <div class="workout-options">
+        <button onclick="selectWorkout('Cardio')" class="hover-btn">🏃 Cardio</button>
+        <button onclick="selectWorkout('Strength')" class="hover-btn">💪 Strength</button>
+        <button onclick="selectWorkout('Flexibility')" class="hover-btn">🧘 Flexibility</button>
+      </div>
+    </section>
+
+    <!-- Motivation -->
+    <section id="motivation" class="subsection">
+      <h2>🔥 Staying Motivated</h2>
+      <ul>
+        <li>🎧 Listen to energizing music</li>
+        <li>👯‍♀️ Workout with a friend</li>
+        <li>📱 Use free apps like FitOn or Nike Training</li>
+        <li>✅ Track your progress in the planner above</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Student Wellness – Fitness Page</p>
+  </footer>
+
+  <!-- Workout Planner Script -->
+  <script>
+    let selectedWorkout = '';
+
+    function selectWorkout(type) {
+      selectedWorkout = type;
+      alert(`Selected: ${type}. Now click a day to assign it.`);
+    }
+
+    function assignWorkout(element) {
+      if (selectedWorkout === '') {
+        alert('Please select a workout type first.');
+        return;
+      }
+      element.innerText = element.innerText.split(" ")[0] + ` - ${selectedWorkout}`;
+      element.classList.add("assigned");
+      selectedWorkout = '';
+    }
+  </script>
+
+  <!-- Botpress Chatbot -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2025/07/09/01/20250709015240-TJZISH9C.js"></script>
+</body>
+</html>
