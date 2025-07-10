@@ -47,7 +47,7 @@ body {
 }
 
 .navbar nav a:hover {
-  color: #a18863;
+  color: #3fa34d;
 }
 
 /* MAIN SECTION */
@@ -82,7 +82,7 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #a18863;
+  color: #3fa34d;
 }
 
 .subsection ul {
@@ -110,6 +110,7 @@ body {
   border-radius: 10px;
   padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -124,6 +125,11 @@ body {
   color: #222;
 }
 
+.card p {
+  font-size: 0.95em;
+  color: #555;
+}
+
 .card ul {
   padding-left: 16px;
 }
@@ -133,7 +139,19 @@ body {
   margin-bottom: 6px;
 }
 
-/* CALENDAR PLANNER */
+/* DATE PICKER */
+.date-picker {
+  margin: 20px 0;
+}
+
+.date-picker input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+/* CALENDAR / PLANNER */
 .calendar {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -158,13 +176,13 @@ body {
 }
 
 .day.assigned {
-  background-color: #a18863;
+  background-color: #3fa34d;
   color: white;
 }
 
 /* BUTTONS */
 .hover-btn {
-  background-color: #1a1a1a;
+  background-color: #3fa34d;
   color: white;
   padding: 12px 24px;
   border: none;
@@ -179,8 +197,28 @@ body {
 }
 
 .hover-btn:hover {
-  background-color: #333;
+  background-color: #32843f;
   transform: scale(1.07);
+}
+
+/* FORMS */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+}
+
+form input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+form label {
+  font-weight: 500;
+  color: #333;
 }
 
 /* FOOTER */
@@ -215,4 +253,3 @@ footer {
     margin-bottom: 10px;
   }
 }
-

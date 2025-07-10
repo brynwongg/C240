@@ -1,133 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Student Fitness</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body>
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="logo">Student Fitness</div>
     <nav>
       <ul>
-        <li><a href="#quickstart">Quick Start</a></li>
         <li><a href="#workouts">Workout Types</a></li>
         <li><a href="#planner">Planner</a></li>
-        <li><a href="#motivation">Motivation</a></li>
+        <li><a href="#calories">Calorie Tracker</a></li>
+        <li><a href="#playlist">Playlist</a></li>
+        <li><a href="tracker.html">Workout Tracker</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- MAIN -->
   <main class="fitness-section">
-    <h1>🏋️ Fitness for Students</h1>
+    <h1>Fitness for Students</h1>
     <p class="intro">
-      Build habits that support your body and mind. Plan your fitness goals using the calendar and explore workouts tailored to a student lifestyle.
+      Plan your workouts, track calories, and stay motivated. Start building healthy routines with resources made for
+      student life.
     </p>
-
-    <!-- Quick Start -->
-    <section id="quickstart" class="subsection">
-      <h2>⚡ Quick Start Guide</h2>
-      <ul>
-        <li>✅ <strong>Beginner-friendly:</strong> Start with 15–20 mins, 3x a week</li>
-        <li>⏱️ <strong>Busy day?</strong> Squeeze in 5–10 minute workouts</li>
-        <li>🎯 <strong>Choose your goal:</strong> Cardio, Strength, or Flexibility</li>
-      </ul>
-    </section>
 
     <!-- Workout Types -->
     <section id="workouts" class="subsection">
-      <h2>💪 Workout Categories</h2>
+      <h2>Workout Plans</h2>
+      <p>Select a plan to view detailed exercises, reps, and tips.</p>
       <div class="workout-grid">
-        <div class="card">
-          <h3>🏃 Cardio</h3>
-          <ul>
-            <li>Jump rope (5–10 mins)</li>
-            <li>Jog or walk around school</li>
-            <li>10-min YouTube dance workouts</li>
-          </ul>
+        <div class="card" onclick="location.href='push-pull-legs.html'">
+          <h3>Push / Pull / Legs</h3>
+          <p>Split training routine for strength and muscle growth.</p>
         </div>
-        <div class="card">
-          <h3>💪 Strength</h3>
-          <ul>
-            <li>Push-ups, squats, planks</li>
-            <li>Backpack or bottle curls</li>
-            <li>Resistance band circuits</li>
-          </ul>
+        <div class="card" onclick="location.href='cardio-workout.html'">
+          <h3>Cardio Workout</h3>
+          <p>Improve endurance with treadmill, cycling, and HIIT routines.</p>
         </div>
-        <div class="card">
-          <h3>🧘 Flexibility</h3>
-          <ul>
-            <li>Beginner yoga flow</li>
-            <li>Foam rolling or stretching</li>
-            <li>Sun salutations (3 rounds)</li>
-          </ul>
+        <div class="card" onclick="location.href='yoga-workout.html'">
+          <h3>Yoga Routine</h3>
+          <p>Increase flexibility and focus through guided yoga flows.</p>
         </div>
       </div>
     </section>
 
-    <!-- Planner / Calendar -->
+    <!-- Workout Planner -->
     <section id="planner" class="subsection">
-      <h2>📅 Workout Planner</h2>
-      <p>Click a day to assign your workout. Choose from Cardio, Strength, or Flexibility.</p>
-      <div class="calendar">
-        <div class="day" onclick="assignWorkout(this)">Mon</div>
-        <div class="day" onclick="assignWorkout(this)">Tue</div>
-        <div class="day" onclick="assignWorkout(this)">Wed</div>
-        <div class="day" onclick="assignWorkout(this)">Thu</div>
-        <div class="day" onclick="assignWorkout(this)">Fri</div>
-        <div class="day" onclick="assignWorkout(this)">Sat</div>
-        <div class="day" onclick="assignWorkout(this)">Sun</div>
+      <h2>Workout Planner</h2>
+      <p>Select a date and assign your workout below.</p>
+
+      <div class="date-picker">
+        <label for="workoutDate">Choose Date:</label>
+        <input type="date" id="workoutDate" />
       </div>
 
       <div class="workout-options">
-        <button onclick="selectWorkout('Cardio')" class="hover-btn">🏃 Cardio</button>
-        <button onclick="selectWorkout('Strength')" class="hover-btn">💪 Strength</button>
-        <button onclick="selectWorkout('Flexibility')" class="hover-btn">🧘 Flexibility</button>
+        <button onclick="selectWorkout('Push')" class="hover-btn">Push</button>
+        <button onclick="selectWorkout('Pull')" class="hover-btn">Pull</button>
+        <button onclick="selectWorkout('Legs')" class="hover-btn">Legs</button>
+        <button onclick="selectWorkout('Cardio')" class="hover-btn">Cardio</button>
+        <button onclick="selectWorkout('Flexibility')" class="hover-btn">Flexibility</button>
       </div>
+
+      <div id="assignmentDisplay" style="margin-top: 20px; font-weight: bold; color: #333;"></div>
     </section>
 
-    <!-- Motivation -->
-    <section id="motivation" class="subsection">
-      <h2>🔥 Staying Motivated</h2>
-      <ul>
-        <li>🎧 Listen to energizing music</li>
-        <li>👯‍♀️ Workout with a friend</li>
-        <li>📱 Use free apps like FitOn or Nike Training</li>
-        <li>✅ Track your progress in the planner above</li>
-      </ul>
+    <!-- Calorie Tracker -->
+    <section id="calories" class="subsection">
+      <h2>Calorie Tracker</h2>
+      <p>Enter your meals and activity to estimate your daily calories.</p>
+      <form id="calorieForm">
+        <label for="caloriesIn">Calories Consumed:</label>
+        <input type="number" id="caloriesIn" placeholder="e.g. 1800" required />
+
+        <label for="caloriesOut">Calories Burned:</label>
+        <input type="number" id="caloriesOut" placeholder="e.g. 500" required />
+
+        <button type="submit" class="hover-btn">Calculate</button>
+        <p id="netCaloriesResult"></p>
+      </form>
+    </section>
+
+    <!-- Playlist -->
+    <section id="playlist" class="subsection">
+      <h2>Stay Motivated</h2>
+      <p>Check out our Spotify playlist — made for student workouts and energy boosts.</p>
+      <a href="https://open.spotify.com/playlist/4EvA1GolXKYtAYCWDXtiE4?si=3d7f8d212b284d96" target="_blank"
+        class="hover-btn">
+        Listen on Spotify
+      </a>
     </section>
   </main>
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Student Wellness – Fitness Page</p>
+    <p>&copy; 2025 Student Fitness</p>
   </footer>
 
-  <!-- Workout Planner Script -->
+  <!-- SCRIPT -->
   <script>
     let selectedWorkout = '';
+    const workoutLog = {};
 
     function selectWorkout(type) {
       selectedWorkout = type;
-      alert(`Selected: ${type}. Now click a day to assign it.`);
-    }
+      const date = document.getElementById('workoutDate').value;
 
-    function assignWorkout(element) {
-      if (selectedWorkout === '') {
-        alert('Please select a workout type first.');
+      if (!date) {
+        alert("Please select a date first.");
         return;
       }
-      element.innerText = element.innerText.split(" ")[0] + ` - ${selectedWorkout}`;
-      element.classList.add("assigned");
+
+      if (workoutLog[date] === type) {
+        delete workoutLog[date];
+        document.getElementById('assignmentDisplay').textContent = `Workout for ${date} has been unassigned.`;
+      } else {
+        workoutLog[date] = type;
+        document.getElementById('assignmentDisplay').textContent = `Workout for ${date}: ${type}`;
+      }
+
       selectedWorkout = '';
     }
+
+    // Calorie Calculator
+    document.getElementById('calorieForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const caloriesIn = parseInt(document.getElementById('caloriesIn').value);
+      const caloriesOut = parseInt(document.getElementById('caloriesOut').value);
+      const net = caloriesIn - caloriesOut;
+      document.getElementById('netCaloriesResult').textContent = `Net Calories: ${net}`;
+    });
   </script>
 
   <!-- Botpress Chatbot -->
   <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
   <script src="https://files.bpcontent.cloud/2025/07/09/01/20250709015240-TJZISH9C.js"></script>
 </body>
+
 </html>

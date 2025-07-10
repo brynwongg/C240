@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workout Tracker</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">Student Fitness</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tracker.html">Workout Tracker</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="fitness-section">
+    <h1>Workout Tracker</h1>
+    <p class="intro">Log your sets, reps, and weight by date to monitor progress.</p>
+
+    <form id="trackerForm">
+      <label for="logDate">Date:</label>
+      <input type="date" id="logDate" required />
+
+      <label for="exercise">Exercise Name:</label>
+      <input type="text" id="exercise" placeholder="e.g. Bench Press" required />
+
+      <label for="sets">Sets:</label>
+      <input type="number" id="sets" placeholder="e.g. 3" required />
+
+      <label for="reps">Reps per Set:</label>
+      <input type="number" id="reps" placeholder="e.g. 10" required />
+
+      <label for="weight">Weight (kg):</label>
+      <input type="number" id="weight" placeholder="e.g. 40" required />
+
+      <button type="submit" class="hover-btn">Add Entry</button>
+    </form>
+
+    <section id="logSection">
+      <h2>Workout Log</h2>
+      <ul id="workoutLog" style="margin-top: 10px;"></ul>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Student Fitness</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    document.getElementById('trackerForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const date = document.getElementById('logDate').value;
+      const exercise = document.getElementById('exercise').value;
+      const sets = document.getElementById('sets').value;
+      const reps = document.getElementById('reps').value;
+      const weight = document.getElementById('weight').value;
+
+      const log = document.createElement('li');
+      log.textContent = `${date} — ${exercise}: ${sets} sets of ${reps} reps @ ${weight}kg`;
+
+      document.getElementById('workoutLog').appendChild(log);
+      this.reset();
+    });
+  </script>
+</body>
+
+</html>
